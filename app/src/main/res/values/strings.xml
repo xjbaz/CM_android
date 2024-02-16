@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CM_v1</string>
+    <string name="title_home">一覧</string>
+    <string name="title_dashboard">追加</string>
+    <string name="title_notifications">カレンダー</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
