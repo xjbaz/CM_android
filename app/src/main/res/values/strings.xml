@@ -5,4 +5,23 @@
     <string name="title_notifications">カレンダー</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="option1">オス</string>
+    <string name="option2">メス</string>
+
+
+    <string-array name="spinner_items">
+        <item>オス</item>
+        <item>メス</item>
+    </string-array>
+
+    <string-array name="spinner_items2">
+        <item>牛舎A</item>
+        <item>牛舎B</item>
+        <item>牛舎C</item>
+        <item>牛舎D</item>
+        <item>牛舎E</item>
+    </string-array>
+
+
 </resources>
