@@ -5,10 +5,46 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.Dtab3Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        tools:context=".MainActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="３" />
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="餌名"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="餌の名前を入力してください" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="20dp"
+            android:text="追加" />
+    </LinearLayout>
 
 </FrameLayout>
