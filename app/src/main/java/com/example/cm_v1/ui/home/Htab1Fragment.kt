@@ -63,7 +63,7 @@ class Htab1Fragment : Fragment() {
             platformVersion
         )
 
-        val listView: ListView = view.findViewById(R.id.platform_version_list)
+        val listView: ListView = view.findViewById(R.id.cowHouse_list)
         listView.adapter = arrayAdapter
 
         return view
