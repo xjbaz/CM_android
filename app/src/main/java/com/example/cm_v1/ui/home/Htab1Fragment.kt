@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cm_v1.R
+import android.widget.ArrayAdapter
+import android.widget.ListView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +37,36 @@ class Htab1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_htab1, container, false)
+       val view = inflater.inflate(R.layout.fragment_htab1,container,false)
+
+        val platformVersion = arrayOf(
+            "Android 10.0",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 10.0",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+            "Android 9",
+        )
+        val arrayAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            platformVersion
+        )
+
+        val listView: ListView = view.findViewById(R.id.platform_version_list)
+        listView.adapter = arrayAdapter
+
+        return view
     }
 
     companion object {
