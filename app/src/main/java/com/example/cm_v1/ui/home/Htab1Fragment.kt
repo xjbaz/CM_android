@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.cm_v1.R
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.SimpleAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,37 +37,44 @@ class Htab1Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-       val view = inflater.inflate(R.layout.fragment_htab1,container,false)
+        // フラグメントのレイアウトをインフレートする
+        return inflater.inflate(R.layout.fragment_htab1, container, false)
+    }
 
-        val platformVersion = arrayOf(
-            "Android 10.0",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 10.0",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
-            "Android 9",
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // データを用意
+        val number = arrayOf("とり", "しか", "きつね", "かば", "ライオン", "パンダ", "ひつじ")
+        val details = arrayOf(
+            "「とり」の説明文が入ります。", "「しか」の説明文が入ります。",
+            "「きつね」の説明文が入ります。", "「かば」の説明文が入ります。",
+            "「ライオン」の説明文が入ります。", "「パンダ」の説明文が入ります。",
+            "「ひつじ」の説明文が入ります。"
         )
-        val arrayAdapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_list_item_1,
-            platformVersion
+        val images = intArrayOf(
+            R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
+            R.drawable.img5, R.drawable.img6, R.drawable.img7
         )
 
-        val listView: ListView = view.findViewById(R.id.cowHouse_list)
-        listView.adapter = arrayAdapter
+        val listData = ArrayList<Map<String, Any>>()
+        for (i in number.indices) {
+            val item = HashMap<String, Any>()
+            item["number"] = number[i]
+            item["detail"] = details[i]
+            item["image"] = images[i]
+            listData.add(item)
+        }
 
-        return view
+        // ListViewにデータをセットする
+        val list: ListView = view.findViewById(R.id.cowHouse_list)
+        list.adapter = SimpleAdapter(
+            context,
+            listData,
+            R.layout.list_item1,
+            arrayOf("name", "detail", "image"),
+            intArrayOf(R.id.number, R.id.detail, R.id.image)
+        )
     }
 
     companion object {
