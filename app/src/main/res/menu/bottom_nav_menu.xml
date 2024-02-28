@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="" />
 
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/baseline_brightness_low_24"
+        android:title="" />
+
 </menu>
