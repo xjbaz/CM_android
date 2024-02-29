@@ -12,7 +12,10 @@ import com.example.cm_v1.ui.info.Itab2Fragment
 import com.example.cm_v1.ui.info.Itab3Fragment
 import com.example.cm_v1.ui.info.Itab4Fragment
 import com.example.cm_v1.ui.info.Itab5Fragment
+import com.example.cm_v1.ui.setting.SettingFragment
 import com.google.android.material.tabs.TabLayout
+
+
 
 class InfoFragment : Fragment() {
 
@@ -66,5 +69,24 @@ class InfoFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment SettingFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            SettingFragment().apply {
+                arguments = Bundle().apply {
+                    putString(com.example.cm_v1.ui.setting.ARG_PARAM1, param1)
+                    putString(com.example.cm_v1.ui.setting.ARG_PARAM2, param2)
+                }
+            }
     }
 }

@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         // 最初はログインボタンを非活性にしておく
-        btnLogin.isEnabled = false
+        //btnLogin.isEnabled = false
     }
 
     // TextWatcherを実装
