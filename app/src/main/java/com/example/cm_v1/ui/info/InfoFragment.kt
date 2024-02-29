@@ -4,15 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.cm_v1.R
-import com.example.cm_v1.databinding.FragmentHomeBinding
-import com.example.cm_v1.ui.dashboard.Dtab1Fragment
-import com.example.cm_v1.ui.dashboard.Dtab2Fragment
-import com.example.cm_v1.ui.dashboard.Dtab3Fragment
-import com.example.cm_v1.ui.dashboard.Dtab4Fragment
+import com.example.cm_v1.databinding.FragmentInfoBinding
 import com.example.cm_v1.ui.info.Itab1Fragment
 import com.example.cm_v1.ui.info.Itab2Fragment
 import com.example.cm_v1.ui.info.Itab3Fragment
@@ -22,14 +16,14 @@ import com.google.android.material.tabs.TabLayout
 
 class InfoFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentInfoBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentInfoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,9 +31,6 @@ class InfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTabLayout()
     }
-
-
-
 
     private fun setupTabLayout() {
         binding.tabs2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -53,7 +44,6 @@ class InfoFragment : Fragment() {
                 }
             }
 
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {
                 // ここにコードは不要です。
             }
@@ -66,6 +56,7 @@ class InfoFragment : Fragment() {
         // 初期フラグメントを設定
         showFragment(HtabAllFragment())
     }
+
     private fun showFragment(fragment: Fragment) {
         childFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
