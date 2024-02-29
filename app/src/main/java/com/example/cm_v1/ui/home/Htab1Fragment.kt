@@ -9,6 +9,7 @@ import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.fragment.app.Fragment
 import com.example.cm_v1.R
+import com.example.cm_v1.ui.info.InfoActivity
 
 class Htab1Fragment : Fragment() {
 
@@ -82,11 +83,8 @@ class Htab1Fragment : Fragment() {
             // クリックされたアイテムの位置(position)を取得
             // ここで画面遷移などの処理を行う
             // 例えば、InfoFragmentに遷移する場合:
-            val infoFragment = InfoFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, infoFragment)
-            transaction.addToBackStack(null) // 戻るボタンで前のフラグメントに戻れるようにする
-            transaction.commit()
+            val intent = Intent(requireContext(), InfoActivity::class.java)
+            startActivity(intent)
         }
     }
 

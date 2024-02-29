@@ -1,4 +1,4 @@
-package com.example.cm_v1.ui.home
+package com.example.cm_v1.ui.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -54,7 +54,7 @@ class InfoFragment : Fragment() {
         })
 
         // 初期フラグメントを設定
-        showFragment(HtabAllFragment())
+        showFragment(Itab1Fragment())
     }
 
     private fun showFragment(fragment: Fragment) {
