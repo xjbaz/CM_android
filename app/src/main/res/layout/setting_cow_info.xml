@@ -9,24 +9,180 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="個体の登録"
+        android:text="基本情報"
+        android:textSize="24sp"
+        android:layout_marginLeft="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0" />
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="100sp"
-        android:layout_height="50sp"
-        android:text="戻る"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.798" />
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/underline"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_info_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="名前"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <EditText
+            android:id="@+id/edit_info_name"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="text"
+            android:text="名前を入力して下さい"
+            android:textColor="#52000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_info_name" />
+
+        <TextView
+            android:id="@+id/text_info_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="管理番号"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_info_name" />
+
+        <EditText
+            android:id="@+id/edit_info_number"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="text"
+            android:text="個体番号を入力して下さい"
+            android:textColor="#52000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_info_number" />
+
+        <TextView
+            android:id="@+id/text_info_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="性別"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_info_number" />
+
+        <RadioGroup
+            android:id="@+id/radio_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/text_info_gender">
+
+            <RadioButton
+                android:id="@+id/radio_gender_osu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="オス" />
+
+            <RadioButton
+                android:id="@+id/radio_gender_mesu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="メス" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/text_info_birthbay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="誕生日"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_gender" />
+
+        <EditText
+            android:id="@+id/edit_info_date"
+            android:layout_width="wrap_content"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="生年月日を選択"
+            android:inputType="none" />
+
+        <TextView
+            android:id="@+id/text_info_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="個体分類"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:entries="@array/type_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_info_type" />
+
+
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="80sp"
+            android:layout_gravity="center"
+            android:text="確定"/>
+
+
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
