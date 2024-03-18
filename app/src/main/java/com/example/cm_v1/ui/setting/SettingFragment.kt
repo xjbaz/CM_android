@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.example.cm_v1.R
 import android.content.Intent
 import android.widget.Button
-import com.example.cm_v1.MainActivity
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
 import com.example.cm_v1.SettingHealthDrug
