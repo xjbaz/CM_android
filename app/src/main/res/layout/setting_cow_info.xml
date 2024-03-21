@@ -163,7 +163,7 @@
         <Spinner
             android:id="@+id/spinner_type"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48sp"
             android:layout_gravity="center"
             android:entries="@array/type_options"
             app:layout_constraintEnd_toEndOf="parent"
