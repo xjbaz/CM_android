@@ -14,6 +14,7 @@ import com.example.cm_v1.SettingFoodChange
 import com.example.cm_v1.SettingFoodInfo
 import com.example.cm_v1.SettingHealthDisease
 import com.example.cm_v1.SettingHealthDurg
+import com.example.cm_v1.SettingSpermCount
 import com.example.cm_v1.SettingSpermInfo
 
 // TODO: Rename parameter arguments, choose names that match
@@ -90,6 +91,10 @@ class SettingFragment : Fragment() {
         }
         spermInfo.setOnClickListener {
             val intent = Intent(requireContext(), SettingSpermInfo::class.java)
+            startActivity(intent)
+        }
+        spermCount.setOnClickListener {
+            val intent = Intent(requireContext(), SettingSpermCount::class.java)
             startActivity(intent)
         }
 
