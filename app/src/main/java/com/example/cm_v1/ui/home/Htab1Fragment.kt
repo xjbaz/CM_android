@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.fragment.app.Fragment
@@ -38,51 +39,39 @@ class Htab1Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // データを用意
+        val name = arrayOf(
+            "さくら", "よしえ", "りかこ", "さくらこ", "はじめ", "よしえ",
+            "みちる",
+        )
         val number = arrayOf(
-            "個体番号1", "個体番号2", "個体番号3", "個体番号4", "個体番号5", "個体番号6",
-            "個体番号7", "個体番号8", "個体番号9", "個体番号10", "個体番号11", "個体番号12",
-            "個体番号13", "個体番号14", "個体番号15", "個体番号16", "個体番号17", "個体番号18",
-        )
-        val details = arrayOf(
-            "ステータス1","ステータス2","ステータス3",
-            "ステータス4","ステータス5","ステータス6",
-            "ステータス7","ステータス8","ステータス9",
-            "ステータス10","ステータス11","ステータス12",
-            "ステータス13","ステータス14","ステータス15",
-            "ステータス16","ステータス17","ステータス18",
-        )
-        val images = intArrayOf(
-            R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
-            R.drawable.img5, R.drawable.img6, R.drawable.img7, R.drawable.img8,
-            R.drawable.img9, R.drawable.img10, R.drawable.img11, R.drawable.img12,
-            R.drawable.img13, R.drawable.img14, R.drawable.img15, R.drawable.img16,
-            R.drawable.img17, R.drawable.img18,
+            "0X001A","0X001B","0X001C",
+            "0X001D","0X001E","0X001F",
+            "0X001G",
         )
 
         val listData = ArrayList<Map<String, Any>>()
-        for (i in number.indices) {
+        for (i in name.indices) {
             val item = HashMap<String, Any>()
+            item["name"] = name[i]
             item["number"] = number[i]
-            item["detail"] = details[i]
-            item["image"] = images[i]
             listData.add(item)
         }
 
         // ListViewにデータをセットする
         val list: ListView = view.findViewById(R.id.cowHouse_list)
         list.adapter = SimpleAdapter(
-            context,
+            requireContext(),
             listData,
             R.layout.list_item1,
-            arrayOf("number", "detail", "image"),
-            intArrayOf(R.id.number, R.id.detail, R.id.image)
+            arrayOf("name", "number"),
+            intArrayOf(R.id.cow_name, R.id.number)
         )
 
         // リストアイテムのクリックイベントをリスナーで処理
-        list.setOnItemClickListener { _, _, position, _ ->
+        list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             // クリックされたアイテムの位置(position)を取得
             // ここで画面遷移などの処理を行う
-            // 例えば、InfoFragmentに遷移する場合:
+            // 例えば、InfoActivityに遷移する場合:
             val intent = Intent(requireContext(), InfoActivity::class.java)
             startActivity(intent)
         }
