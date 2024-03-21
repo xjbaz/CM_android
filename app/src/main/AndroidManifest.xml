@@ -52,6 +52,10 @@
             android:name=".SettingFoodInfo"
             android:label="@string/title_setting_food_info">
         </activity>
+        <activity
+            android:name=".SettingSpermInfo"
+            android:label="@string/title_setting_food_info">
+        </activity>
 
 
     </application>

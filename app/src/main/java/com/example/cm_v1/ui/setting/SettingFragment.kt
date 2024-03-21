@@ -13,6 +13,7 @@ import com.example.cm_v1.SettingCowInfo
 import com.example.cm_v1.SettingFoodInfo
 import com.example.cm_v1.SettingHealthDisease
 import com.example.cm_v1.SettingHealthDurg
+import com.example.cm_v1.SettingSpermInfo
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +81,10 @@ class SettingFragment : Fragment() {
         }
         foodInfo.setOnClickListener {
             val intent = Intent(requireContext(), SettingFoodInfo::class.java)
+            startActivity(intent)
+        }
+        spermInfo.setOnClickListener {
+            val intent = Intent(requireContext(), SettingSpermInfo::class.java)
             startActivity(intent)
         }
 
