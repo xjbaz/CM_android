@@ -35,7 +35,7 @@
         <activity
             android:name=".SettingCowInfo"
             android:exported="true"
-            android:label="@string/title_setting">
+            android:label="@string/title_setting_cow_info">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,10 +45,19 @@
         <activity
             android:name=".SettingCowHome"
             android:exported="true"
-            android:label="@string/title_setting">
+            android:label="@string/title_setting_cow_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingHealthDurg"
+            android:exported="true"
+            android:label="@string/title_setting_cow_home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

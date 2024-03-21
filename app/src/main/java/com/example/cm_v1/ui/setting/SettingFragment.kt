@@ -10,6 +10,7 @@ import android.content.Intent
 import android.widget.Button
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
+import com.example.cm_v1.SettingHealthDurg
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,6 +66,10 @@ class SettingFragment : Fragment() {
         }
         cowHome.setOnClickListener {
             val intent = Intent(requireContext(), SettingCowHome::class.java)
+            startActivity(intent)
+        }
+        healthDrug.setOnClickListener {
+            val intent = Intent(requireContext(), SettingHealthDurg::class.java)
             startActivity(intent)
         }
 

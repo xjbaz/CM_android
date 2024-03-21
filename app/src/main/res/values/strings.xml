@@ -4,6 +4,10 @@
     <string name="title_dashboard">繁殖</string>
     <string name="title_notifications">カレンダー</string>
     <string name="title_setting">基本設定</string>
+    <string name="title_setting_cow_info">個体の登録</string>
+    <string name="title_setting_cow_home">牛舎の登録</string>
+    <string name="title_setting_health_drug">薬の登録</string>
+    <string name="title_setting_health_disease">病気の登録</string>
     <string name="title_info">information</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
