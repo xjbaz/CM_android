@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cm_v1.R
+import android.content.Intent
+import android.widget.Button
+import com.example.cm_v1.SettingCowHome
+import com.example.cm_v1.SettingCowInfo
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,6 +23,14 @@ const val ARG_PARAM2 = "param2"
  */
 class SettingFragment : Fragment() {
     // TODO: Rename and change types of parameters
+    private lateinit var cowInfo: Button
+    private lateinit var cowHome: Button
+    private lateinit var healthDrug: Button
+    private lateinit var healthDisease: Button
+    private lateinit var foodInfo: Button
+    private lateinit var foodChange: Button
+    private lateinit var spermInfo: Button
+    private lateinit var spermCount: Button
     private var param1: String? = null
     private var param2: String? = null
 
@@ -34,8 +46,30 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        // レイアウトファイルをインフレート
+        val view = inflater.inflate(R.layout.fragment_setting, container, false)
+
+        // レイアウトファイルからボタンを取得
+        cowInfo = view.findViewById(R.id.cow_info)
+        cowHome = view.findViewById(R.id.cow_home)
+        healthDrug = view.findViewById(R.id.health_drug)
+        healthDisease = view.findViewById(R.id.health_disease)
+        foodInfo = view.findViewById(R.id.food_info)
+        foodChange = view.findViewById(R.id.food_change)
+        spermInfo = view.findViewById(R.id.sperm_info)
+        spermCount = view.findViewById(R.id.sperm_count)
+
+        cowInfo.setOnClickListener {
+            val intent = Intent(requireContext(), SettingCowInfo::class.java)
+            startActivity(intent)
+        }
+        cowHome.setOnClickListener {
+            val intent = Intent(requireContext(), SettingCowHome::class.java)
+            startActivity(intent)
+        }
+
+
+        return view
     }
 
     companion object {
