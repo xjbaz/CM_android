@@ -10,6 +10,8 @@ import android.content.Intent
 import android.widget.Button
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
+import com.example.cm_v1.SettingFoodInfo
+import com.example.cm_v1.SettingHealthDisease
 import com.example.cm_v1.SettingHealthDurg
 
 // TODO: Rename parameter arguments, choose names that match
@@ -70,6 +72,14 @@ class SettingFragment : Fragment() {
         }
         healthDrug.setOnClickListener {
             val intent = Intent(requireContext(), SettingHealthDurg::class.java)
+            startActivity(intent)
+        }
+        healthDisease.setOnClickListener {
+            val intent = Intent(requireContext(), SettingHealthDisease::class.java)
+            startActivity(intent)
+        }
+        foodInfo.setOnClickListener {
+            val intent = Intent(requireContext(), SettingFoodInfo::class.java)
             startActivity(intent)
         }
 

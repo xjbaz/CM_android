@@ -33,33 +33,24 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.info.InfoActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
             android:name=".SettingCowInfo"
-            android:exported="true"
             android:label="@string/title_setting_cow_info">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SettingCowHome"
-            android:exported="true"
             android:label="@string/title_setting_cow_home">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SettingHealthDurg"
-            android:exported="true"
-            android:label="@string/title_setting_cow_home">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_setting_health_drug">
+        </activity>
+        <activity
+            android:name=".SettingFoodInfo"
+            android:label="@string/title_setting_food_info">
         </activity>
 
 
