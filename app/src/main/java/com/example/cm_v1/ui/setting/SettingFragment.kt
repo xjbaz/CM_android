@@ -10,6 +10,7 @@ import android.content.Intent
 import android.widget.Button
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
+import com.example.cm_v1.SettingFoodChange
 import com.example.cm_v1.SettingFoodInfo
 import com.example.cm_v1.SettingHealthDisease
 import com.example.cm_v1.SettingHealthDurg
@@ -81,6 +82,10 @@ class SettingFragment : Fragment() {
         }
         foodInfo.setOnClickListener {
             val intent = Intent(requireContext(), SettingFoodInfo::class.java)
+            startActivity(intent)
+        }
+        foodChange.setOnClickListener {
+            val intent = Intent(requireContext(), SettingFoodChange::class.java)
             startActivity(intent)
         }
         spermInfo.setOnClickListener {
