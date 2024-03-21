@@ -49,7 +49,15 @@
             android:label="@string/title_setting_health_drug">
         </activity>
         <activity
+            android:name=".SettingHealthDisease"
+            android:label="@string/title_setting_health_drug">
+        </activity>
+        <activity
             android:name=".SettingFoodInfo"
+            android:label="@string/title_setting_food_info">
+        </activity>
+        <activity
+            android:name=".SettingFoodChange"
             android:label="@string/title_setting_food_info">
         </activity>
         <activity
