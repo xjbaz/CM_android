@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
-        android:text="薬の名称"
+        android:text="牛舎名"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginStart="20dp"
         android:background="@drawable/bg_edittext"
         android:inputType="text"
-        android:text="薬の名称を入力して下さい"
+        android:text="個体番号を入力して下さい"
         android:textColor="#52000000"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,27 +49,25 @@
         android:layout_height="wrap_content"
         android:text="登録済みデータ"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_home_name"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="371dp"
-        android:layout_height="354dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
+    <ListView
+        android:id="@id/listView"
+        android:layout_width="320dp"
+        android:layout_height="451dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/setting_button"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_home_name"
-        app:layout_constraintVertical_bias="0.316" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_home_name" />
 
     <Button
         android:id="@+id/btnBack"
@@ -81,6 +79,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
