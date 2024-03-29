@@ -38,23 +38,35 @@
         </activity>
         <activity
             android:name=".SettingCowInfo"
-            android:exported="true"
-            android:label="@string/title_setting">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_setting_cow_info">
         </activity>
         <activity
             android:name=".SettingCowHome"
-            android:exported="true"
-            android:label="@string/title_setting">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_setting_cow_home">
+        </activity>
+        <activity
+            android:name=".SettingHealthDurg"
+            android:label="@string/title_setting_health_drug">
+        </activity>
+        <activity
+            android:name=".SettingHealthDisease"
+            android:label="@string/title_setting_health_drug">
+        </activity>
+        <activity
+            android:name=".SettingFoodInfo"
+            android:label="@string/title_setting_food_info">
+        </activity>
+        <activity
+            android:name=".SettingFoodChange"
+            android:label="@string/title_setting_food_info">
+        </activity>
+        <activity
+            android:name=".SettingSpermInfo"
+            android:label="@string/title_setting_food_info">
+        </activity>
+        <activity
+            android:name=".SettingSpermCount"
+            android:label="@string/title_setting_food_info">
         </activity>
 
 

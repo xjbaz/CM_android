@@ -5,4 +5,14 @@
         <item>TypeB</item>
         <item>TypeC</item>
     </string-array>
+    <string-array name="tag_options">
+        <item>TagA</item>
+        <item>TagB</item>
+        <item>TagC</item>
+    </string-array>
+    <string-array name="food_options">
+        <item>foodA</item>
+        <item>foodB</item>
+        <item>foodC</item>
+    </string-array>
 </resources>

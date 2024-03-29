@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="予定日の計算法"
+        android:textSize="24sp"
+        android:layout_marginLeft="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/underline"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="402dp"
+        android:layout_height="307dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="人工授精"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/human_day"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="受精卵移植"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/transplanting_day"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="自然種付け"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/nature_day"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="発情予定日の計算法"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/underline"
+        app:layout_constraintTop_toBottomOf="@+id/title2"
+        tools:layout_editor_absoluteX="-13dp" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="276dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="後発情予定日"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/after_day"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40sp"
+            android:paddingTop="20sp"
+            android:text="前発情予定日"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/before_day"
+            android:layout_width="325sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_edittext"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:text="確定"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

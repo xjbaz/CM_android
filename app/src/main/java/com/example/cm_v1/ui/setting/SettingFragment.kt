@@ -10,6 +10,12 @@ import android.content.Intent
 import android.widget.Button
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
+import com.example.cm_v1.SettingFoodChange
+import com.example.cm_v1.SettingFoodInfo
+import com.example.cm_v1.SettingHealthDisease
+import com.example.cm_v1.SettingHealthDurg
+import com.example.cm_v1.SettingSpermCount
+import com.example.cm_v1.SettingSpermInfo
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,6 +71,30 @@ class SettingFragment : Fragment() {
         }
         cowHome.setOnClickListener {
             val intent = Intent(requireContext(), SettingCowHome::class.java)
+            startActivity(intent)
+        }
+        healthDrug.setOnClickListener {
+            val intent = Intent(requireContext(), SettingHealthDurg::class.java)
+            startActivity(intent)
+        }
+        healthDisease.setOnClickListener {
+            val intent = Intent(requireContext(), SettingHealthDisease::class.java)
+            startActivity(intent)
+        }
+        foodInfo.setOnClickListener {
+            val intent = Intent(requireContext(), SettingFoodInfo::class.java)
+            startActivity(intent)
+        }
+        foodChange.setOnClickListener {
+            val intent = Intent(requireContext(), SettingFoodChange::class.java)
+            startActivity(intent)
+        }
+        spermInfo.setOnClickListener {
+            val intent = Intent(requireContext(), SettingSpermInfo::class.java)
+            startActivity(intent)
+        }
+        spermCount.setOnClickListener {
+            val intent = Intent(requireContext(), SettingSpermCount::class.java)
             startActivity(intent)
         }
 
