@@ -10,6 +10,7 @@ import android.content.Intent
 import android.widget.Button
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
+import com.example.cm_v1.SettingCustomTag
 import com.example.cm_v1.SettingFoodChange
 import com.example.cm_v1.SettingFoodInfo
 import com.example.cm_v1.SettingHealthDisease
@@ -37,6 +38,7 @@ class SettingFragment : Fragment() {
     private lateinit var foodChange: Button
     private lateinit var spermInfo: Button
     private lateinit var spermCount: Button
+    private lateinit var customTag: Button
     private var param1: String? = null
     private var param2: String? = null
 
@@ -64,6 +66,7 @@ class SettingFragment : Fragment() {
         foodChange = view.findViewById(R.id.food_change)
         spermInfo = view.findViewById(R.id.sperm_info)
         spermCount = view.findViewById(R.id.sperm_count)
+        customTag = view.findViewById(R.id.custom_tag)
 
         cowInfo.setOnClickListener {
             val intent = Intent(requireContext(), SettingCowInfo::class.java)
@@ -95,6 +98,10 @@ class SettingFragment : Fragment() {
         }
         spermCount.setOnClickListener {
             val intent = Intent(requireContext(), SettingSpermCount::class.java)
+            startActivity(intent)
+        }
+        customTag.setOnClickListener {
+            val intent = Intent(requireContext(), SettingCustomTag::class.java)
             startActivity(intent)
         }
 

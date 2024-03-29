@@ -68,6 +68,10 @@
             android:name=".SettingSpermCount"
             android:label="@string/title_setting_food_info">
         </activity>
+        <activity
+            android:name=".SettingCustomTag"
+            android:label="@string/title_setting_food_info">
+        </activity>
 
 
     </application>
