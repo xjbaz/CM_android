@@ -1,18 +1,27 @@
 package com.example.cm_v1.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.TextKeyListener.clear
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.ListView
+import android.widget.SearchView
 import android.widget.SimpleAdapter
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.cm_v1.R
 import com.example.cm_v1.ui.info.InfoActivity
+import java.util.Collections.addAll
 
 class Htab1Fragment : Fragment() {
+
+    class Cow(val name: String, val number: String, val love:Boolean, val state: Boolean)
 
     private val ARG_PARAM1 = "param1"
     private val ARG_PARAM2 = "param2"
@@ -39,33 +48,23 @@ class Htab1Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // データを用意
-        val name = arrayOf(
-            "さくら", "よしえ", "りかこ", "さくらこ", "はじめ", "よしえ",
-            "みちる",
-        )
-        val number = arrayOf(
-            "0X001A","0X001B","0X001C",
-            "0X001D","0X001E","0X001F",
-            "0X001G",
+        val cows = listOf(
+            Cow("さくら", "0X001A", true,true),
+            Cow("よしえ", "0X001B", false,false),
+            Cow("りかこ", "0X001C",false,false),
+            Cow("さくらこ", "0X001D",true,true),
+            Cow("はじめ", "0X001E",false,true),
+            Cow("よしえ", "0X001F", true,true),
+            Cow("みちる", "0X001G", true,false)
         )
 
-        val listData = ArrayList<Map<String, Any>>()
-        for (i in name.indices) {
-            val item = HashMap<String, Any>()
-            item["name"] = name[i]
-            item["number"] = number[i]
-            listData.add(item)
-        }
+        // ArrayAdapter を使用した方法
+        val adapter = CowAdapter(requireContext(), cows)
+
 
         // ListViewにデータをセットする
         val list: ListView = view.findViewById(R.id.cowHouse_list)
-        list.adapter = SimpleAdapter(
-            requireContext(),
-            listData,
-            R.layout.list_item1,
-            arrayOf("name", "number"),
-            intArrayOf(R.id.cow_name, R.id.number)
-        )
+        list.adapter = adapter
 
         // リストアイテムのクリックイベントをリスナーで処理
         list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
@@ -75,7 +74,27 @@ class Htab1Fragment : Fragment() {
             val intent = Intent(requireContext(), InfoActivity::class.java)
             startActivity(intent)
         }
+
+        // テキストフィルターを有効にする
+        list.isTextFilterEnabled = true
+
+        val searchView = view.findViewById<SearchView>(R.id.searchView)
+        searchView?.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                // 入力テキストに変更があったとき
+                override fun onQueryTextChange(p0: String?): Boolean {
+                    adapter.filter.filter(p0)
+                    return false
+                }
+
+                // 検索ボタンを押したとき
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                    return false
+                }
+            }
+        )
     }
+
 
     companion object {
         @JvmStatic
@@ -86,5 +105,46 @@ class Htab1Fragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+}
+
+class CowAdapter(context: Context, cows: List<Htab1Fragment.Cow>) :
+    ArrayAdapter<Htab1Fragment.Cow>(context, 0, cows) {
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var listItemView = convertView
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(context).inflate(
+                R.layout.list_item1,
+                parent,
+                false
+            )
+        }
+
+        val currentCow = getItem(position)
+
+        val cowNameTextView = listItemView?.findViewById<TextView>(R.id.cow_name)
+        cowNameTextView?.text = currentCow?.name
+
+        val cowNumberTextView = listItemView?.findViewById<TextView>(R.id.number)
+        cowNumberTextView?.text = currentCow?.number
+
+        val loveIcon = listItemView?.findViewById<ImageView>(R.id.loveIcon)
+        if (currentCow?.love == true) {
+            loveIcon?.visibility = View.VISIBLE
+        } else {
+            loveIcon?.visibility = View.GONE
+        }
+
+        val stateIcon = listItemView?.findViewById<ImageView>(R.id.stateIcon)
+        if (currentCow?.state == true) {
+//            stateIcon?.visibility = View.VISIBLE
+            stateIcon?.setImageResource(R.drawable.good_state)
+        } else {
+//            stateIcon?.visibility = View.GONE
+            stateIcon?.setImageResource(R.drawable.bat_state)
+        }
+
+        return listItemView!!
     }
 }
