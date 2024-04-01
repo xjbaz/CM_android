@@ -1,12 +1,12 @@
 package com.example.cm_v1
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import android.app.DatePickerDialog
 import java.util.*
 
 class SettingCowInfo : AppCompatActivity() {
@@ -16,7 +16,10 @@ class SettingCowInfo : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.setting_cow_info)
+
+
 
         // ボタンをレイアウトファイルから取得
         edit_info_date = findViewById(R.id.edit_info_date)
