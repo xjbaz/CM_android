@@ -1,12 +1,13 @@
 package com.example.cm_v1
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cm_v1.R
+import androidx.appcompat.widget.Toolbar
 
 class SettingFoodInfo : AppCompatActivity() {
 
@@ -19,6 +20,10 @@ class SettingFoodInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_food_info)
+
+        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         editFoodName = findViewById(R.id.edit_food_name)
         btnAdd = findViewById(R.id.btn_add)
@@ -47,5 +52,14 @@ class SettingFoodInfo : AppCompatActivity() {
         btnBack.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // android.R.id.home に戻るボタンを押した時のidが取得できる
+        if (item.itemId == android.R.id.home) {
+            // 今回はActivityを終了させている
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
