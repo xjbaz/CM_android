@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Filter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
@@ -18,10 +19,11 @@ import androidx.fragment.app.Fragment
 import com.example.cm_v1.R
 import com.example.cm_v1.ui.info.InfoActivity
 import java.util.Collections.addAll
+import java.util.Locale
 
 class Htab1Fragment : Fragment() {
 
-    class Cow(val name: String, val number: String, val love:Boolean, val state: Boolean)
+    class Cow(val name: String, val number: String, val love: Boolean, val state: Boolean)
 
     private val ARG_PARAM1 = "param1"
     private val ARG_PARAM2 = "param2"
@@ -49,13 +51,13 @@ class Htab1Fragment : Fragment() {
 
         // データを用意
         val cows = listOf(
-            Cow("さくら", "0X001A", true,true),
-            Cow("よしえ", "0X001B", false,false),
-            Cow("りかこ", "0X001C",false,false),
-            Cow("さくらこ", "0X001D",true,true),
-            Cow("はじめ", "0X001E",false,true),
-            Cow("よしえ", "0X001F", true,true),
-            Cow("みちる", "0X001G", true,false)
+            Cow("さくら", "0X001A", true, true),
+            Cow("よしえ", "0X001B", false, false),
+            Cow("りかこ", "0X001C", false, false),
+            Cow("さくらこ", "0X001D", true, true),
+            Cow("はじめ", "0X001E", false, true),
+            Cow("よしえ", "0X001F", true, true),
+            Cow("みちる", "0X001G", true, false)
         )
 
         // ArrayAdapter を使用した方法
@@ -97,20 +99,62 @@ class Htab1Fragment : Fragment() {
     }
 
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Htab1Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+//    companion object {
+//        @JvmStatic
+//        fun newInstance(param1: String, param2: String) =
+//            Htab1Fragment().apply {
+//                arguments = Bundle().apply {
+//                    putString(ARG_PARAM1, param1)
+//                    putString(ARG_PARAM2, param2)
+//                }
+//            }
+//    }
 }
 
-class CowAdapter(context: Context, cows: List<Htab1Fragment.Cow>) :
+
+class CowAdapter(context: Context, private val cows: List<Htab1Fragment.Cow>) :
     ArrayAdapter<Htab1Fragment.Cow>(context, 0, cows) {
+
+    private var filteredCows: List<Htab1Fragment.Cow> = cows.toList()
+
+    private val filter = object : Filter() {
+        override fun performFiltering(constraint: CharSequence?): FilterResults {
+            val result = FilterResults()
+            val filteredList = mutableListOf<Htab1Fragment.Cow>()
+
+            constraint?.let { query ->
+                if (query.isNotBlank()) {
+                    val filterPattern = query.toString().toLowerCase(Locale.getDefault())
+                    for (item in cows) {
+                        if (item.name.toLowerCase(Locale.getDefault()).contains(filterPattern)) {
+                            filteredList.add(item)
+                        }
+                    }
+                } else {
+                    filteredList.addAll(cows)
+                }
+            }
+
+            result.values = filteredList
+            result.count = filteredList.size
+            return result
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+            results?.let {
+                filteredCows = it.values as List<Htab1Fragment.Cow>
+                notifyDataSetChanged()
+            }
+        }
+    }
+
+    override fun getCount(): Int {
+        return filteredCows.size
+    }
+
+    override fun getItem(position: Int): Htab1Fragment.Cow? {
+        return filteredCows[position]
+    }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var listItemView = convertView
@@ -146,4 +190,10 @@ class CowAdapter(context: Context, cows: List<Htab1Fragment.Cow>) :
 
         return listItemView!!
     }
+
+    override fun getFilter(): Filter {
+        return filter
+    }
 }
+
+

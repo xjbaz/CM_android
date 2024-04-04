@@ -15,10 +15,14 @@ import com.example.cm_v1.ui.dashboard.Dtab3Fragment
 import com.example.cm_v1.ui.dashboard.Dtab4Fragment
 import com.google.android.material.tabs.TabLayout
 import androidx.appcompat.widget.SearchView;
+import androidx.viewpager.widget.ViewPager
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+//    private lateinit var viewPager: ViewPager
+//    private lateinit var tabLayout: TabLayout
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -31,6 +35,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        viewPager = view.findViewById(R.id.viewPager)
+//        tabLayout = view.findViewById(R.id.tabs2)
         setupTabLayout()
     }
 
