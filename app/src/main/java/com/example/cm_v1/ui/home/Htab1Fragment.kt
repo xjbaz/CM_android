@@ -84,6 +84,7 @@ class Htab1Fragment : Fragment() {
                 // 入力テキストに変更があったとき
                 override fun onQueryTextChange(p0: String?): Boolean {
                     adapter.filter.filter(p0)
+                    adapter.notifyDataSetChanged() // データが変更されたことを通知
                     return false
                 }
 
@@ -138,10 +139,8 @@ class CowAdapter(context: Context, cows: List<Htab1Fragment.Cow>) :
 
         val stateIcon = listItemView?.findViewById<ImageView>(R.id.stateIcon)
         if (currentCow?.state == true) {
-//            stateIcon?.visibility = View.VISIBLE
             stateIcon?.setImageResource(R.drawable.good_state)
         } else {
-//            stateIcon?.visibility = View.GONE
             stateIcon?.setImageResource(R.drawable.bat_state)
         }
 

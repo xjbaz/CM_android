@@ -7,7 +7,6 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CM_v1"
@@ -24,8 +23,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,39 +36,40 @@
         </activity>
         <activity
             android:name=".SettingCowInfo"
-            android:label="@string/title_setting_cow_info">
+            android:theme="@style/Theme.CM_v1.NoActionBar"
+            >
         </activity>
         <activity
             android:name=".SettingCowHome"
-            android:label="@string/title_setting_cow_home">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingHealthDurg"
-            android:label="@string/title_setting_health_drug">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingHealthDisease"
-            android:label="@string/title_setting_health_drug">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingFoodInfo"
-            android:label="@string/title_setting_food_info">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingFoodChange"
-            android:label="@string/title_setting_food_info">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingSpermInfo"
-            android:label="@string/title_setting_food_info">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingSpermCount"
-            android:label="@string/title_setting_food_info">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
         <activity
             android:name=".SettingCustomTag"
-            android:label="@string/title_setting_food_info">
+            android:theme="@style/Theme.CM_v1.NoActionBar">
         </activity>
 
 

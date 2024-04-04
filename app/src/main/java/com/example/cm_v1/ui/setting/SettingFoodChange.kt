@@ -1,15 +1,14 @@
 package com.example.cm_v1
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
+import android.widget.ListView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import android.app.DatePickerDialog
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import java.util.*
+import androidx.appcompat.widget.Toolbar
 
 class SettingFoodChange : AppCompatActivity() {
     private lateinit var btnFin: Button
@@ -19,6 +18,10 @@ class SettingFoodChange : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_food_change)
+
+        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val radioGroup: RadioGroup = findViewById(R.id.radio_gender)
         val button1: RadioButton = findViewById(R.id.radio_gender_osu)
@@ -53,4 +56,12 @@ class SettingFoodChange : AppCompatActivity() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // android.R.id.home に戻るボタンを押した時のidが取得できる
+        if (item.itemId == android.R.id.home) {
+            // 今回はActivityを終了させている
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
