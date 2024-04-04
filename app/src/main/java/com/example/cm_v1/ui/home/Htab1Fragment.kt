@@ -197,3 +197,110 @@ class CowAdapter(context: Context, private val cows: List<Htab1Fragment.Cow>) :
 }
 
 
+//class CowAdapter(context: Context, private val cows: List<Htab1Fragment.Cow>) :
+//    ArrayAdapter<Htab1Fragment.Cow>(context, 0, cows) {
+//
+//    private var filteredCows: List<Htab1Fragment.Cow> = cows
+//
+//
+//    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+//        var listItemView = convertView
+//        if (listItemView == null) {
+//            listItemView = LayoutInflater.from(context).inflate(
+//                R.layout.list_item1,
+//                parent,
+//                false
+//            )
+//        }
+//
+//        val currentCow = getItem(position)
+//
+//        val cowNameTextView = listItemView?.findViewById<TextView>(R.id.cow_name)
+//        cowNameTextView?.text = currentCow?.name
+//
+//        val cowNumberTextView = listItemView?.findViewById<TextView>(R.id.number)
+//        cowNumberTextView?.text = currentCow?.number
+//
+//        val loveIcon = listItemView?.findViewById<ImageView>(R.id.loveIcon)
+//        if (currentCow?.love == true) {
+//            loveIcon?.visibility = View.VISIBLE
+//        } else {
+//            loveIcon?.visibility = View.GONE
+//        }
+//
+//        val stateIcon = listItemView?.findViewById<ImageView>(R.id.stateIcon)
+//        if (currentCow?.state == true) {
+//            stateIcon?.setImageResource(R.drawable.good_state)
+//        } else {
+//            stateIcon?.setImageResource(R.drawable.bat_state)
+//        }
+//
+//        return listItemView!!
+//    }
+//
+//    private val filter = object : Filter() {
+//        override fun performFiltering(constraint: CharSequence?): FilterResults {
+//            val result = FilterResults()
+//            val filteredList: MutableList<Htab1Fragment.Cow> = mutableListOf()
+//
+//            if (constraint != null) {
+//                filteredList.clear()
+//                val filterPattern = constraint.toString().lowercase()
+//                for (item in cows) {
+//                    if (item.name.lowercase().contains(filterPattern)) {
+//                        filteredList.add(item)
+//                    }
+//                }
+//                result.values = filteredList
+//                result.count = filteredList.size
+//            }
+//
+//            return result
+//        }
+//
+//        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+//            clear()
+//            if (results != null && results.count > 0) {
+//                addAll(results.values as MutableList<Htab1Fragment.Cow>)
+//            } else {
+//                addAll(cows)
+//            }
+//            notifyDataSetChanged()
+//        }
+//    }
+//}
+
+
+//    override fun getFilter(): Filter {
+//        return object : Filter() {
+//            override fun performFiltering(constraint: CharSequence?): FilterResults {
+//                val results = FilterResults()
+//                val filteredList = mutableListOf<Htab1Fragment.Cow>()
+//
+//                constraint?.let { query ->
+//                    if (query.isNotEmpty()) {
+//                        val search = query.toString().lowercase(Locale.getDefault())
+//                        for (cow in cows) {
+//                            if (cow.name.contains(search)) {
+//                                filteredList.add(cow)
+//                            }
+//                        }
+//                    } else {
+//                        filteredList.addAll(cows)
+//                    }
+//                }
+//
+//                results.values = filteredList
+//                results.count = filteredList.size
+//                return results
+//            }
+//
+//            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+//                results?.let {
+//                    filteredCows = it.values as List<Htab1Fragment.Cow>
+//                    notifyDataSetChanged()
+//                }
+//            }
+//        }
+//    }
+//}
