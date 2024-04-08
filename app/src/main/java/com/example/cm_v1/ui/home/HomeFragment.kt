@@ -37,10 +37,14 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
         viewPager = root.findViewById(R.id.viewPager)
-        tab = root.findViewById(R.id.tabLayout)
+        tab = root.findViewById(R.id.tabLayout_h)
 
         for (k in 0 until 5) {
-            tab.addTab(tab.newTab().setText("$k"))
+            if (k == 0) {
+                tab.addTab(tab.newTab().setText("すべて"))
+            }else {
+                tab.addTab(tab.newTab().setText("牛舎$k"))
+            }
         }
 
         adapter = TabAdapter(childFragmentManager, tab.tabCount)
@@ -48,12 +52,7 @@ class HomeFragment : Fragment() {
         viewPager.offscreenPageLimit = 1
         // タブが選択されたときにViewPagerのページを変更する処理
 
-        setupTabLayout()
-        return root
-    }
 
-    private fun setupTabLayout()
-    {
         tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 viewPager.currentItem = tab.position
@@ -67,7 +66,29 @@ class HomeFragment : Fragment() {
                 // タブが再度選択された時の処理
             }
         })
+        return root
     }
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        setupTabLayout()
+//    }
+//
+//    private fun setupTabLayout(){
+//        tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+//            override fun onTabSelected(tab: TabLayout.Tab) {
+//                viewPager.currentItem = tab.position
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab) {
+//                // タブが選択解除された時の処理
+//            }
+//
+//            override fun onTabReselected(tab: TabLayout.Tab) {
+//                // タブが再度選択された時の処理
+//            }
+//        })
+//    }
     class TabAdapter(fm: androidx.fragment.app.FragmentManager, private val numOfTabs: Int) :
         androidx.fragment.app.FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
