@@ -1,9 +1,9 @@
 package com.example.cm_v1.ui.home
 
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.TextKeyListener.clear
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,38 +13,27 @@ import android.widget.Filter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
-import android.widget.SimpleAdapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.cm_v1.R
 import com.example.cm_v1.ui.info.InfoActivity
-import java.util.Collections.addAll
 import java.util.Locale
 
-class Htab1Fragment : Fragment() {
-
+class DynamicFragment : Fragment() {
     class Cow(val name: String, val number: String, val love: Boolean, val state: Boolean)
 
-    private val ARG_PARAM1 = "param1"
-    private val ARG_PARAM2 = "param2"
+    private lateinit var view: View
+    private var valInt: Int = 0
+    private lateinit var c: TextView
 
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        view = inflater.inflate(R.layout.fragment_dynamic, container, false)
+        valInt = requireArguments().getInt("someInt", 0)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        return view
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_htab1, container, false)
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -65,7 +54,7 @@ class Htab1Fragment : Fragment() {
 
 
         // ListViewにデータをセットする
-        val list: ListView = view.findViewById(R.id.cowHouse_list2)
+        val list: ListView = view.findViewById(R.id.cowHouse_list)
         list.adapter = adapter
 
         // リストアイテムのクリックイベントをリスナーで処理
@@ -99,15 +88,15 @@ class Htab1Fragment : Fragment() {
     }
 
 
-    class CowAdapter(context: Context, private val cows: List<Htab1Fragment.Cow>) :
-        ArrayAdapter<Htab1Fragment.Cow>(context, 0, cows) {
+    class CowAdapter(context: Context, private val cows: List<DynamicFragment.Cow>) :
+        ArrayAdapter<DynamicFragment.Cow>(context, 0, cows) {
 
-        private var filteredCows: List<Htab1Fragment.Cow> = cows.toList()
+        private var filteredCows: List<DynamicFragment.Cow> = cows.toList()
 
         private val filter = object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val result = FilterResults()
-                val filteredList = mutableListOf<Htab1Fragment.Cow>()
+                val filteredList = mutableListOf<DynamicFragment.Cow>()
 
                 constraint?.let { query ->
                     if (query.isNotBlank()) {
@@ -131,7 +120,7 @@ class Htab1Fragment : Fragment() {
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 results?.let {
-                    filteredCows = it.values as List<Htab1Fragment.Cow>
+                    filteredCows = it.values as List<DynamicFragment.Cow>
                     notifyDataSetChanged()
                 }
             }
@@ -141,7 +130,7 @@ class Htab1Fragment : Fragment() {
             return filteredCows.size
         }
 
-        override fun getItem(position: Int): Htab1Fragment.Cow? {
+        override fun getItem(position: Int): DynamicFragment.Cow? {
             return filteredCows[position]
         }
 
@@ -184,8 +173,16 @@ class Htab1Fragment : Fragment() {
             return filter
         }
     }
+
+
+
+companion object {
+        fun newInstance(valInt: Int): DynamicFragment {
+            val fragment = DynamicFragment()
+            val args = Bundle()
+            args.putInt("someInt", valInt)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }
-
-
-
-

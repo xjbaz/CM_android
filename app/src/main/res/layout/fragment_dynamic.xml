@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.Htab1Fragment">
+    tools:context="ui.home.DynamicFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?actionBarSize"
         android:orientation="vertical"
-        tools:context=".ui.home.Htab1Fragment"><!--変更いるかも-->
+        tools:context=".ui.home.DynamicFragment"><!--変更いるかも-->
 
         <SearchView
-            android:id="@+id/searchView2"
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
-            android:queryHint="Search"
-            app:layout_constraintTop_toBottomOf="@id/tabs1.5" />
+            android:queryHint="Search" />
 
         <ListView
-            android:id="@+id/cowHouse_list2"
+            android:id="@+id/cowHouse_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,5 +31,4 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
-
 </FrameLayout>
