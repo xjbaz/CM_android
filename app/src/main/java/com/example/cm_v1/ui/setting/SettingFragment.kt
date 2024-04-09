@@ -1,13 +1,18 @@
 package com.example.cm_v1.ui.setting
 
+import YesNoDialogFragment
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import com.example.cm_v1.R
-import android.content.Intent
 import android.widget.Button
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import com.example.cm_v1.R
 import com.example.cm_v1.SettingCowHome
 import com.example.cm_v1.SettingCowInfo
 import com.example.cm_v1.SettingCustomTag
@@ -44,12 +49,13 @@ class SettingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -107,6 +113,27 @@ class SettingFragment : Fragment() {
 
 
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.login_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_login -> {
+                // ログインメニューのアイテムがクリックされた場合、ダイアログを表示する
+                showYesNoDialog()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showYesNoDialog() {
+        val dialog = YesNoDialogFragment()
+        dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.NoPaddingDialogTheme)
+        dialog.show(parentFragmentManager, "YesNoDialogFragment")
     }
 
     companion object {
