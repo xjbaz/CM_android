@@ -56,18 +56,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="navigation_setting">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="29" />
-                            <option name="y" value="329" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                 </map>
               </option>
             </LayoutPositions>
