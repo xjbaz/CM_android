@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.setting.SettingFragment">
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_200"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
