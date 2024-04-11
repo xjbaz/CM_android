@@ -9,18 +9,16 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_h"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="347dp"
+        android:layout_height="55dp"
+        android:background="#FFF"
         android:minHeight="?actionBarSize"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="#FFF">
-    </com.google.android.material.tabs.TabLayout>
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -31,8 +29,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tabLayout_h">
     </androidx.viewpager2.widget.ViewPager2>
 
-
-
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="63dp"
+        android:layout_height="55dp"
+        android:padding="0sp"
+        android:text="フィルター"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tabLayout_h"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tabLayout_h"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

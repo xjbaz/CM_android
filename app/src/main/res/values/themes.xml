@@ -17,7 +17,7 @@
 
     <!-- 背景色の設定とタイトルカラーのスタイル設定 -->
     <style name="CustomActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="background">@color/black</item>
+        <item name="background">@color/teal_200</item>
         <item name="titleTextStyle">@style/MyActionBarTitle</item>
     </style>
 
