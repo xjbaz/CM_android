@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import java.util.Calendar
 
 class SettingCowInfo : AppCompatActivity() {
@@ -19,10 +18,6 @@ class SettingCowInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_cow_info)
-
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-
-        setSupportActionBar(toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

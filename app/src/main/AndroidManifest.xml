@@ -36,40 +36,39 @@
         </activity>
         <activity
             android:name=".SettingCowInfo"
-            android:theme="@style/Theme.CM_v1.NoActionBar"
-            >
+            android:label="@string/title_setting_cow_info">
         </activity>
         <activity
             android:name=".SettingCowHome"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_cow_home">
         </activity>
         <activity
             android:name=".SettingHealthDurg"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_health_drug">
         </activity>
         <activity
             android:name=".SettingHealthDisease"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_health_disease">
         </activity>
         <activity
             android:name=".SettingFoodInfo"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_food_info">
         </activity>
         <activity
             android:name=".SettingFoodChange"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_food_change">
         </activity>
         <activity
             android:name=".SettingSpermInfo"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_sperm_info">
         </activity>
         <activity
             android:name=".SettingSpermCount"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_sperm_count">
         </activity>
         <activity
             android:name=".SettingCustomTag"
-            android:theme="@style/Theme.CM_v1.NoActionBar">
+            android:label="@string/title_setting_custom_tag">
         </activity>
 
 

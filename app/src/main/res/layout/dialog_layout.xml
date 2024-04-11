@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#70B0B0B0"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本当に退会しますか？"/>
+
+
+    <Button
+        android:id="@+id/buttonYes"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:text="Yes" />
+
+    <Button
+        android:id="@+id/buttonNo"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:text="No" />
+
+
+</LinearLayout>

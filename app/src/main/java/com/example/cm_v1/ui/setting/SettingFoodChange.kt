@@ -8,7 +8,6 @@ import android.widget.ListView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 
 class SettingFoodChange : AppCompatActivity() {
     private lateinit var btnFin: Button
@@ -19,8 +18,6 @@ class SettingFoodChange : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_food_change)
 
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val radioGroup: RadioGroup = findViewById(R.id.radio_gender)

@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 
 class SettingHealthDisease : AppCompatActivity() {
 
@@ -21,8 +20,6 @@ class SettingHealthDisease : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_health_disease)
 
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         editDiseaseName = findViewById(R.id.edit_disease_name)
