@@ -13,14 +13,14 @@
         tools:context=".ui.home.HomeDynamicFragment"><!--変更いるかも-->
 
         <SearchView
-            android:id="@+id/searchView"
+            android:id="@+id/searchView_breed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
             android:queryHint="Search" />
 
         <ListView
-            android:id="@+id/cowHouse_list"
+            android:id="@+id/cowBreed_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
