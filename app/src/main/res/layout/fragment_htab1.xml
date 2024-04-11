@@ -13,7 +13,7 @@
         tools:context=".ui.home.Htab1Fragment"><!--変更いるかも-->
 
         <SearchView
-            android:id="@+id/searchView"
+            android:id="@+id/searchView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toBottomOf="@id/tabs1.5" />
 
         <ListView
-            android:id="@+id/cowHouse_list"
+            android:id="@+id/cowHouse_list2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

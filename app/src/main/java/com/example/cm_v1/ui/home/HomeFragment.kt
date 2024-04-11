@@ -1,82 +1,123 @@
 package com.example.cm_v1.ui.home
 
+
+import YesNoDialogFragment
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.cm_v1.R
-import com.example.cm_v1.databinding.FragmentHomeBinding
-import com.example.cm_v1.ui.dashboard.Dtab1Fragment
-import com.example.cm_v1.ui.dashboard.Dtab2Fragment
-import com.example.cm_v1.ui.dashboard.Dtab3Fragment
-import com.example.cm_v1.ui.dashboard.Dtab4Fragment
 import com.google.android.material.tabs.TabLayout
-import androidx.appcompat.widget.SearchView;
-import androidx.viewpager.widget.ViewPager
+
+
+
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-//    private lateinit var viewPager: ViewPager
-//    private lateinit var tabLayout: TabLayout
+    private lateinit var adapter: ViewPagerAdapter
+    private lateinit var tab: TabLayout
+    private lateinit var viewPager: ViewPager2
 
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+
+        viewPager = root.findViewById(R.id.viewPager)
+        tab = root.findViewById(R.id.tabLayout_h)
+
+
+        for (k in 0 until 5) {
+            if (k == 0) {
+                tab.addTab(tab.newTab().setText("すべて"))
+            } else {
+                tab.addTab(tab.newTab().setText("牛舎$k"))
+            }
+        }
+
+        adapter = ViewPagerAdapter(requireActivity(),tab.tabCount)
+        viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = 1
+        // タブが選択されたときにViewPagerのページを変更する処理
+
+
+        //ViewPager2でページを変更する際、TabLayoutの選択状態を連動する処理
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                tab.selectTab(tab.getTabAt(position))
+            }
+        })
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewPager = view.findViewById(R.id.viewPager)
-//        tabLayout = view.findViewById(R.id.tabs2)
         setupTabLayout()
     }
 
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.login_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_login -> {
+                // ログインメニューのアイテムがクリックされた場合、ダイアログを表示する
+                showYesNoDialog()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showYesNoDialog() {
+        val dialog = YesNoDialogFragment()
+        dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.NoPaddingDialogTheme)
+        dialog.show(parentFragmentManager, "YesNoDialogFragment")
+    }
 
     private fun setupTabLayout() {
-        binding.tabs2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab?.position) {
-                    0 -> showFragment(HtabAllFragment())
-                    1 -> showFragment(Htab1Fragment())
-                    2 -> showFragment(Htab2Fragment())
-                    3 -> showFragment(Htab3Fragment())
-                    4 -> showFragment(Htab4Fragment())
-                    5 -> showFragment(Htab5Fragment())
-                }
+        tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager.currentItem = tab.position
             }
 
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                // ここにコードは不要です。
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+                // タブが選択解除された時の処理
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                // ここにコードは不要です。
+            override fun onTabReselected(tab: TabLayout.Tab) {
+                // タブが再度選択された時の処理
             }
         })
-
-        // 初期フラグメントを設定
-        showFragment(HtabAllFragment())
-    }
-    private fun showFragment(fragment: Fragment) {
-        childFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val numOfTabs: Int) :
+        FragmentStateAdapter(fragmentActivity) {
+        override fun getItemCount(): Int {
+            //アダプターが管理するフラグメントの総数を返す
+            return numOfTabs
+        }
+        override fun createFragment(position: Int): Fragment {
+            return DynamicFragment.newInstance(position)
+        }
     }
 }
