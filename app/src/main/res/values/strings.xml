@@ -9,6 +9,10 @@
     <string name="title_setting_health_drug">薬の登録</string>
     <string name="title_setting_health_disease">病気の登録</string>
     <string name="title_setting_food_info">餌の登録</string>
+    <string name="title_setting_food_change">餌の変更について</string>
+    <string name="title_setting_sperm_info">精子情報の登録</string>
+    <string name="title_setting_sperm_count">予定日の計算方法</string>
+    <string name="title_setting_custom_tag">カスタムタグの登録</string>
     <string name="title_info">information</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

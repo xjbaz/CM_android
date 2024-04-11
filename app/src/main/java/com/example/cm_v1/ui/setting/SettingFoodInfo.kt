@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 
 class SettingFoodInfo : AppCompatActivity() {
 
@@ -21,8 +20,6 @@ class SettingFoodInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_food_info)
 
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         editFoodName = findViewById(R.id.edit_food_name)

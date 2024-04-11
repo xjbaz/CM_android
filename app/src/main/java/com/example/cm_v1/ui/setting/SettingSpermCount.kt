@@ -5,7 +5,6 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 
 class SettingSpermCount : AppCompatActivity() {
     private lateinit var btnFin: Button
@@ -19,8 +18,6 @@ class SettingSpermCount : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_sperm_count)
 
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btnFin = findViewById(R.id.btnFinish)
