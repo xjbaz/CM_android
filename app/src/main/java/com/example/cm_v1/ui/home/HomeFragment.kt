@@ -1,33 +1,26 @@
 package com.example.cm_v1.ui.home
 
-import android.content.Context
-import android.content.Intent
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Filter
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.SearchView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.cm_v1.R
-import com.example.cm_v1.databinding.FragmentHomeBinding
-import com.example.cm_v1.ui.info.InfoActivity
 import com.google.android.material.tabs.TabLayout
-import java.util.Locale
+import com.google.android.material.tabs.TabLayoutMediator
+
 
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var adapter: TabAdapter
+    private lateinit var adapter: ViewPagerAdapter
     private lateinit var tab: TabLayout
-    private lateinit var viewPager: ViewPager
+    private lateinit var viewPager: ViewPager2
 
 
     override fun onCreateView(
@@ -39,20 +32,37 @@ class HomeFragment : Fragment() {
         viewPager = root.findViewById(R.id.viewPager)
         tab = root.findViewById(R.id.tabLayout_h)
 
+
         for (k in 0 until 5) {
             if (k == 0) {
                 tab.addTab(tab.newTab().setText("すべて"))
-            }else {
+            } else {
                 tab.addTab(tab.newTab().setText("牛舎$k"))
             }
         }
 
-        adapter = TabAdapter(childFragmentManager, tab.tabCount)
+        adapter = ViewPagerAdapter(requireActivity(),tab.tabCount)
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 1
         // タブが選択されたときにViewPagerのページを変更する処理
 
 
+        //ViewPager2でページを変更する際、TabLayoutの選択状態を連動する処理
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                tab.selectTab(tab.getTabAt(position))
+            }
+        })
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupTabLayout()
+    }
+
+    private fun setupTabLayout() {
         tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 viewPager.currentItem = tab.position
@@ -66,38 +76,16 @@ class HomeFragment : Fragment() {
                 // タブが再度選択された時の処理
             }
         })
-        return root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        setupTabLayout()
-//    }
-//
-//    private fun setupTabLayout(){
-//        tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab) {
-//                viewPager.currentItem = tab.position
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab) {
-//                // タブが選択解除された時の処理
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab) {
-//                // タブが再度選択された時の処理
-//            }
-//        })
-//    }
-    class TabAdapter(fm: androidx.fragment.app.FragmentManager, private val numOfTabs: Int) :
-        androidx.fragment.app.FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-
-        override fun getItem(position: Int): Fragment {
-            return DynamicFragment.newInstance(position)
-        }
-
-        override fun getCount(): Int {
+    class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val numOfTabs: Int) :
+        FragmentStateAdapter(fragmentActivity) {
+        override fun getItemCount(): Int {
+            //アダプターが管理するフラグメントの総数を返す
             return numOfTabs
+        }
+        override fun createFragment(position: Int): Fragment {
+            return DynamicFragment.newInstance(position)
         }
     }
 }
