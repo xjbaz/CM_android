@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".ui.home.HomeDynamicFragment"><!--変更いるかも-->
+        tools:context=".ui.dashboard.Dtab1Fragment"><!--変更いるかも-->
 
     <SearchView
-        android:id="@+id/searchView2"
+        android:id="@+id/searchView_breed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
