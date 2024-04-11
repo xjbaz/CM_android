@@ -186,8 +186,6 @@ class HomeDynamicFragment : Fragment() {
         }
     }
 
-
-
     companion object {
         fun newInstance(valInt: Int): HomeDynamicFragment {
             val fragment = HomeDynamicFragment()
