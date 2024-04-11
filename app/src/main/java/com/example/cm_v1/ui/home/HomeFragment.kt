@@ -11,7 +11,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cm_v1.R
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 
 
@@ -33,7 +32,7 @@ class HomeFragment : Fragment() {
         tab = root.findViewById(R.id.tabLayout_h)
 
 
-        for (k in 0 until 5) {
+        for (k in 0 until 4) {
             if (k == 0) {
                 tab.addTab(tab.newTab().setText("すべて"))
             } else {
@@ -85,7 +84,7 @@ class HomeFragment : Fragment() {
             return numOfTabs
         }
         override fun createFragment(position: Int): Fragment {
-            return DynamicFragment.newInstance(position)
+            return HomeDynamicFragment.newInstance(position)
         }
     }
 }

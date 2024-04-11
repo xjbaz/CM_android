@@ -1,9 +1,9 @@
 package com.example.cm_v1.ui.home
 
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.TextKeyListener.clear
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,37 +13,24 @@ import android.widget.Filter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
-import android.widget.SimpleAdapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.cm_v1.R
 import com.example.cm_v1.ui.info.InfoActivity
-import java.util.Collections.addAll
 import java.util.Locale
 
-class Htab1Fragment : Fragment() {
-
+class HomeDynamicFragment : Fragment() {
     class Cow(val name: String, val number: String, val love: Boolean, val state: Boolean)
 
-    private val ARG_PARAM1 = "param1"
-    private val ARG_PARAM2 = "param2"
+    private lateinit var view: View
+    private var valInt: Int = 0
 
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        view = inflater.inflate(R.layout.fragment_home_dynamic, container, false)
+        valInt = requireArguments().getInt("someInt", 0)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_htab1, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,7 +44,21 @@ class Htab1Fragment : Fragment() {
             Cow("さくらこ", "0X001D", true, true),
             Cow("はじめ", "0X001E", false, true),
             Cow("よしえ", "0X001F", true, true),
-            Cow("みちる", "0X001G", true, false)
+            Cow("みちる", "0X001G", true, false),
+            Cow("おきく","0X002A", true,true),
+            Cow( "としえ","0X002B", false ,true),
+            Cow( "みちる", "0X002C", true,false),
+            Cow( "あきら", "0X002D", false,false),
+            Cow( "くめ", "0X002E", false,true),
+            Cow("しょうた", "0X002F", false,true),
+            Cow("はやし", "0X002G", true,true),
+            Cow("さくら","0X003A", false,false),
+            Cow("とおる", "0X003B", false,true),
+            Cow("ルキ","0X003C", true,false),
+            Cow("さらさ","0X003D", false,true),
+            Cow( "いしかわ", "0X003E", false,false),
+            Cow("ごえもん", "0X003F", true,true),
+            Cow( "ジャイ子","0X003G", false,true,),
         )
 
         // ArrayAdapter を使用した方法
@@ -65,7 +66,7 @@ class Htab1Fragment : Fragment() {
 
 
         // ListViewにデータをセットする
-        val list: ListView = view.findViewById(R.id.cowHouse_list2)
+        val list: ListView = view.findViewById(R.id.cowHouse_list)
         list.adapter = adapter
 
         // リストアイテムのクリックイベントをリスナーで処理
@@ -99,15 +100,15 @@ class Htab1Fragment : Fragment() {
     }
 
 
-    class CowAdapter(context: Context, private val cows: List<Htab1Fragment.Cow>) :
-        ArrayAdapter<Htab1Fragment.Cow>(context, 0, cows) {
+    class CowAdapter(context: Context, private val cows: List<HomeDynamicFragment.Cow>) :
+        ArrayAdapter<HomeDynamicFragment.Cow>(context, 0, cows) {
 
-        private var filteredCows: List<Htab1Fragment.Cow> = cows.toList()
+        private var filteredCows: List<HomeDynamicFragment.Cow> = cows.toList()
 
         private val filter = object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val result = FilterResults()
-                val filteredList = mutableListOf<Htab1Fragment.Cow>()
+                val filteredList = mutableListOf<HomeDynamicFragment.Cow>()
 
                 constraint?.let { query ->
                     if (query.isNotBlank()) {
@@ -131,7 +132,7 @@ class Htab1Fragment : Fragment() {
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 results?.let {
-                    filteredCows = it.values as List<Htab1Fragment.Cow>
+                    filteredCows = it.values as List<HomeDynamicFragment.Cow>
                     notifyDataSetChanged()
                 }
             }
@@ -141,7 +142,7 @@ class Htab1Fragment : Fragment() {
             return filteredCows.size
         }
 
-        override fun getItem(position: Int): Htab1Fragment.Cow? {
+        override fun getItem(position: Int): HomeDynamicFragment.Cow? {
             return filteredCows[position]
         }
 
@@ -184,8 +185,16 @@ class Htab1Fragment : Fragment() {
             return filter
         }
     }
+
+
+
+    companion object {
+        fun newInstance(valInt: Int): HomeDynamicFragment {
+            val fragment = HomeDynamicFragment()
+            val args = Bundle()
+            args.putInt("someInt", valInt)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }
-
-
-
-
