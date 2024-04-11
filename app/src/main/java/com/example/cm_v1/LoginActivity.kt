@@ -1,12 +1,12 @@
 package com.example.cm_v1
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -14,6 +14,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var editTextId: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var btnLogin: Button
+    private var isPlayng: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,5 +61,12 @@ class LoginActivity : AppCompatActivity() {
 
         // IDとパスワードが空でない場合にログインボタンを活性化
         btnLogin.isEnabled = id.isNotEmpty() && password.isNotEmpty()
+    }
+
+
+    override fun onBackPressed() {
+        if(!isPlayng){
+            super.onBackPressed()
+        }
     }
 }
