@@ -8,7 +8,6 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="病歴１-------------------------------------"
@@ -18,22 +17,149 @@
         android:layout_margin="10dp"/>
 
     <TextView
-        android:id="@+id/textView10"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="病歴2-------------------------------------"
+        android:text="病名：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="発症日：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完治確認日：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="投薬名称：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="発症中に与えた餌：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="メモ：" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="病歴２-------------------------------------"
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="@color/teal_200"
         android:layout_margin="10dp"/>
 
     <TextView
-        android:id="@+id/textView11"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="病歴3-------------------------------------"
+        android:text="病名：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="発症日：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完治確認日：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="投薬名称：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="発症中に与えた餌：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="メモ：" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="病歴３-------------------------------------"
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="@color/teal_200"
         android:layout_margin="10dp"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="病名：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="発症日：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完治確認日：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="投薬名称：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="発症中に与えた餌：" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="メモ：" />
+
+
+
 </LinearLayout>
