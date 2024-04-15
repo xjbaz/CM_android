@@ -5,17 +5,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.info.Itab2_2Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="100dp"
-        android:text="Itab2-2fragmetn" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_itab2_re"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img19"  />
+
+        <Button
+            android:id="@+id/button_itab2_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="戻る" />
+        <Button
+            android:id="@+id/button_itab2_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登録" />
+    </LinearLayout>
 
 </FrameLayout>

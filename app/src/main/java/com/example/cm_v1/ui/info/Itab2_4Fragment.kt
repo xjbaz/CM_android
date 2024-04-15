@@ -7,34 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.cm_v1.R
-
-
-class Itab2_2Fragment : Fragment() {
+class Itab2_4Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_itab2_2, container, false)
+        return inflater.inflate(R.layout.fragment_itab2_3, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val button_ad = view.findViewById<Button>(R.id.button_itab2_ad)
-        val button_re = view.findViewById<Button>(R.id.button_itab2_re)
+        val button_re = view.findViewById<Button>(R.id.button_itab4_re)
 
         button_re.setOnClickListener {
-            // FragmentManagerの取得
-            val pfm = parentFragmentManager
-
-            // トランザクションの生成・コミット
-            val ft = pfm.beginTransaction()
-            ft.apply {
-                replace(R.id.fragment_container, Itab2Fragment())
-                commit()
-            }
-        }
-        button_ad.setOnClickListener {
             // FragmentManagerの取得
             val pfm = parentFragmentManager
 
@@ -45,6 +31,5 @@ class Itab2_2Fragment : Fragment() {
                 commit()
             }
         }
-
     }
 }
