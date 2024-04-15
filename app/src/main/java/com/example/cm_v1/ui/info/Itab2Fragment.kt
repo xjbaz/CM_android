@@ -21,7 +21,7 @@ class Itab2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val button = view.findViewById<Button>(R.id.button2)
+        val button = view.findViewById<Button>(R.id.button_itab1_ad)
         button.setOnClickListener {
             // FragmentManagerの取得
             val pfm = parentFragmentManager
@@ -36,7 +36,6 @@ class Itab2Fragment : Fragment() {
     }
 }
 
-// FragmentBも同様の処理のため省略
 
 
 
