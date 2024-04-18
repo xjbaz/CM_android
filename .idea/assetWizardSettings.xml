@@ -323,7 +323,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/arrow_right/baseline_arrow_right_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/format_list_bulleted/baseline_format_list_bulleted_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -333,8 +333,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="868686" />
-                            <entry key="outputName" value="baseline_arrow_right_24" />
+                            <entry key="outputName" value="baseline_format_list_bulleted_24" />
                           </map>
                         </option>
                       </PersistentState>

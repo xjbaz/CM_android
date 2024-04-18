@@ -9,6 +9,10 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -18,25 +22,40 @@ import com.example.cm_v1.R
 import com.google.android.material.tabs.TabLayout
 
 
-
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),AdapterView.OnItemSelectedListener{
 
     private lateinit var adapter: ViewPagerAdapter
     private lateinit var tab: TabLayout
     private lateinit var viewPager: ViewPager2
+    private lateinit var stateSpinner: Spinner
+    private lateinit var states: Array<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+
+        stateSpinner = root.findViewById(R.id.filter_spinner)
+
+        states = resources.getStringArray(R.array.spinner_item3)
+        val spinnerAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            states
+        )
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        stateSpinner.adapter = spinnerAdapter
+        stateSpinner.onItemSelectedListener = this
+
 
         viewPager = root.findViewById(R.id.viewPager)
         tab = root.findViewById(R.id.tabLayout_h)
@@ -64,7 +83,20 @@ class HomeFragment : Fragment() {
             }
         })
         return root
+
+
     }
+
+    override fun onItemSelected(arg0: AdapterView<*>?, arg1: View?, arg2: Int, arg3: Long) {
+        val i = arg0?.selectedItemPosition ?: 0
+        Toast.makeText(
+            requireContext(),
+            states[i],
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    override fun onNothingSelected(arg0: AdapterView<*>?) {}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -109,7 +141,7 @@ class HomeFragment : Fragment() {
         })
     }
 
-    class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val numOfTabs: Int) :
+    inner class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val numOfTabs: Int) :
         FragmentStateAdapter(fragmentActivity) {
         override fun getItemCount(): Int {
             //アダプターが管理するフラグメントの総数を返す

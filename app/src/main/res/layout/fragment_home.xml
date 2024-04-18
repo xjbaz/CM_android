@@ -20,6 +20,16 @@
         app:tabGravity="fill"
         app:tabMode="fixed" />
 
+    <Spinner
+        android:id="@+id/filter_spinner"
+        android:layout_width="63dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tabLayout_h"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tabLayout_h"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawSelectorOnTop="true"/>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
@@ -29,17 +39,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tabLayout_h">
     </androidx.viewpager2.widget.ViewPager2>
 
-    <Button
-        android:id="@+id/filter_button"
-        android:layout_width="63dp"
-        android:layout_height="55dp"
-        android:padding="0sp"
-        android:text="フィルター"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tabLayout_h"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tabLayout_h"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,5 +34,12 @@
         <item>牛舎E</item>
     </string-array>
 
+    <string-array name="spinner_item3">
+        <item>性別</item>
+        <item>年齢</item>
+        <item>病気関連</item>
+        <item>カスタム</item>
+    </string-array>
+
 
 </resources>
