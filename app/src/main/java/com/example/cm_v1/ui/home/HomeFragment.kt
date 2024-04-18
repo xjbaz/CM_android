@@ -19,7 +19,6 @@ import com.google.android.material.tabs.TabLayout
 
 
 
-
 class HomeFragment : Fragment() {
 
     private lateinit var adapter: ViewPagerAdapter

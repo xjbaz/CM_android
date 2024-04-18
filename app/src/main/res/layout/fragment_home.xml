@@ -30,7 +30,7 @@
     </androidx.viewpager2.widget.ViewPager2>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/filter_button"
         android:layout_width="63dp"
         android:layout_height="55dp"
         android:padding="0sp"
