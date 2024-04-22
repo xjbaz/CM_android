@@ -1,4 +1,4 @@
-// YesNoDialogFragment.kt
+// Dtab4Fragmentragment.kt
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent

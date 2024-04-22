@@ -104,26 +104,26 @@ class HomeFragment : Fragment(),AdapterView.OnItemSelectedListener{
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.login_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_login -> {
-                // ログインメニューのアイテムがクリックされた場合、ダイアログを表示する
-                showYesNoDialog()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun showYesNoDialog() {
-        val dialog = YesNoDialogFragment()
-        dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.NoPaddingDialogTheme)
-        dialog.show(parentFragmentManager, "YesNoDialogFragment")
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.login_menu, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.action_login -> {
+//                // ログインメニューのアイテムがクリックされた場合、ダイアログを表示する
+//                showYesNoDialog()
+//                return true
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+//
+//    private fun showYesNoDialog() {
+//        val dialog = YesNoDialogFragment()
+//        dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.NoPaddingDialogTheme)
+//        dialog.show(parentFragmentManager, "YesNoDialogFragment")
+//    }
 
     private fun setupTabLayout() {
         tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

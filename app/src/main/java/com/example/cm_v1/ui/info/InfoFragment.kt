@@ -6,21 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.example.cm_v1.R
 import com.example.cm_v1.databinding.FragmentInfoBinding
-import com.example.cm_v1.ui.dashboard.Dtab2Fragment
-import com.example.cm_v1.ui.dashboard.Dtab3Fragment
-import com.example.cm_v1.ui.dashboard.Dtab4Fragment
-import com.example.cm_v1.ui.info.Itab1Fragment
-import com.example.cm_v1.ui.info.Itab2Fragment
-import com.example.cm_v1.ui.info.Itab3Fragment
-import com.example.cm_v1.ui.info.Itab4Fragment
-import com.example.cm_v1.ui.info.Itab5Fragment
-import com.example.cm_v1.ui.setting.SettingFragment
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import java.lang.IllegalArgumentException
 
