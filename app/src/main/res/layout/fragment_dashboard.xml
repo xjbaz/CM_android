@@ -7,10 +7,19 @@
     android:id="@+id/rootLayout"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <View
+<!--    <View-->
+<!--        android:id="@+id/dashboard_view"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottomFragmentContainer"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <ImageView
         android:id="@+id/dashboard_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:src="@drawable/karikari"
         app:layout_constraintBottom_toTopOf="@+id/bottomFragmentContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
