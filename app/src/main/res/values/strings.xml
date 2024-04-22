@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CM_v1</string>
     <string name="title_home">一覧</string>
-    <string name="title_dashboard">繁殖</string>
+    <string name="title_dashboard">予定</string>
     <string name="title_notifications">カレンダー</string>
     <string name="title_setting">基本設定</string>
     <string name="title_setting_cow_info">個体の登録</string>

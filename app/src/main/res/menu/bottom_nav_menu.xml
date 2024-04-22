@@ -11,11 +11,7 @@
         android:icon="@drawable/baseline_favorite_24"
         android:title="予定" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="体調" />
-
+    
     <item
         android:id="@+id/navigation_setting"
         android:icon="@drawable/baseline_brightness_low_24"
